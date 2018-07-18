@@ -20,6 +20,8 @@ gem 'jwt'
 gem 'active_model_serializers'
 gem 'will_paginate'
 gem 'faker'
+# gem "slim"
+# gem "slim-rails", :require => false
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

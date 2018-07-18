@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        // $.ajax({
+        //   type: "POST",
+        //   url: 'http: 3000/auth/login',
+        //   data: {email: "ash@email.com", password: "foobar"},
+        // }).done(function (response, status, xhr) {
+        //     var jwt = xhr.getResponseHeader("Authorization");
+        //     // Store `jwt` in window.localStorage
+        // }).fail(function (err)  {
+        //     //Error during request
+        // });
+
+
+        $.ajax({
+          url: 'http :3000/todos',
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            $('#test').html(data);
+            console.log(data);
+          },
+          error: function() {
+            console.log('boo!');
+            $('#test').html('err');
+          },
+          beforeSend: setHeader
+        });
+
+
+
+      });
+
+      function setHeader(xhr) {
+        xhr.setRequestHeader('Authorization', "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1MjY0NTQ2OTF9.yGGamU6vD8jgw-a9P4F40LO8PXKsyVCHuz1T__T-SVg");
+      }
+
+    </script>
+  </head>
+  <body>
+    <h1>Some Text</h1>
+
+    <div id="test">
+    </div>
+  </body>
+</html>
